@@ -1,6 +1,6 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
-import './index.less'
+import './index.less';
 // 公告管理路由
 export default class Announcement extends Component {
     render() {

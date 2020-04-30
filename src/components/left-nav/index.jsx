@@ -1,9 +1,9 @@
-import React, { Component } from 'react'
-import { Link, withRouter } from 'react-router-dom'
+import React, { Component } from 'react';
+import { Link, withRouter } from 'react-router-dom';
 import { Menu, Icon } from 'antd';
-import './index.less'
-import logo from '../../static/image/icon/logo.png'
-import MenuList from '../../config/menuConfig'
+import './index.less';
+import logo from '../../static/image/icon/logo.png';
+import MenuList from '../../config/menuConfig';
 
 const { SubMenu } = Menu;
 
@@ -35,7 +35,7 @@ class leftNav extends Component {
     //                 >
     //                     {this.getMenuNodes(item.children)}
     //                 </SubMenu>
-    //             ) 
+    //             )
     //         }
     //     })
     // }
@@ -85,7 +85,7 @@ class leftNav extends Component {
         // 这里直接获取会报undefined，因为不能再undefined上面读取pathName
         const pathName = this.props.location.pathname
         const openKey = this.openKey
-        
+
         return (
             <div className='left-nav'>
                 <Link to='/' className='logo'><img src={logo} alt="准买网后台管理系统" title='准买网后台管理系统' /></Link>
@@ -113,12 +113,12 @@ class leftNav extends Component {
                             }
                         >
                             <Menu.Item key="/sortSet">
-                                 <Icon type="pie-chart" /> 
+                                 <Icon type="pie-chart" />
                                 <Link to='/sortSet'><span>分类设置</span></Link>
                             </Menu.Item>
 
                             <Menu.Item key="/systemSet">
-                                <Icon type="pie-chart" /> 
+                                <Icon type="pie-chart" />
                                 <Link to='/systemSet'><span>代理费设置</span></Link>
                             </Menu.Item>
 
