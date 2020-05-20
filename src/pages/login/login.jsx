@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import { Form, Icon, Input, Button ,message} from 'antd';
-import store from '../../untils/storage' 
+import store from '../../untils/storage'
 import setAuthToken from '../../untils/authToken'
 import './login.less'
 import {login} from '../../api/api'
@@ -9,12 +9,28 @@ const Item = Form.Item
 /* 管理的路由组件 */
 class Login extends Component {
 
+
+    componentDidMount(){
+        console.log('componentDidMount,---------------组件挂载完毕')
+    }
+
+    componentWillMount(){
+        console.log('componentWillMount,---------------组件将要挂载')
+    }
+
+
+
     handleSubmit = async (e) => {
         e.preventDefault()
         const form = this.props.form
         const values = form.getFieldsValue()
-        const resp = await login(values.username,values.password)
-        console.log(resp.data)  
+        console.log(values);
+        let data = {
+            login_num : values.username,
+            passwd : values.password,
+        }
+        const resp = await login(data)
+        console.log(resp.data)
         if(resp.data.status !==200 ){
             message.destroy();
 
@@ -36,6 +52,7 @@ class Login extends Component {
     };
 
     render () {
+        console.log('render---------------------------------');
         // 获取form对象
         const form = this.props.form
         const { getFieldDecorator } = form
@@ -43,7 +60,7 @@ class Login extends Component {
         return (
             <div className='loginWarp'>
                 <Form onSubmit={this.handleSubmit} className="login-form" >
-                    <div className='loginTitle'><h1>准买网</h1><p>后台管理系统</p></div>
+                    <div className='loginTitle'><p>后台管理系统</p></div>
                     <Item>
                         {getFieldDecorator('username',{
                             rules: [{ required: true, trigger: 'blur' , message: '请输入你的用户名' }]

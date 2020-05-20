@@ -1,9 +1,13 @@
 import axios from 'axios'
 import {message} from 'antd'
 
+const baseUrl = process.env.PUBLIC_URL
+
+
 // 只暴露一个接口函数用default
 export default function ajax(url,data={},method='GET'){
     return new Promise((resolve,reject) =>{
+        console.log(baseUrl);
         let promise
       if(method === 'GET'){
         promise = axios.get(url,{
